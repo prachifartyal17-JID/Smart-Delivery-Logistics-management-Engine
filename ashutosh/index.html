@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery &amp; Logistics Hub</title>
+<link rel="stylesheet" href="../swastika/style.css">
+</head>
+<body>
+<header><h1>Delivery &amp; Logistics Hub</h1><p id="msg" role="status"></p></header>
+<main>
+  <section class="panel"><h2>Hub overview</h2><div id="overview-body"></div></section>
+
+  <section class="panel"><h2>Register parcel</h2>
+    <label>Destination or pincode<input id="dest" autocomplete="off"></label>
+    <ul id="suggest"></ul>
+    <div class="row">
+      <label>Weight (kg)<input id="weight" type="number" value="3" min="0.1" step="0.1"></label>
+      <label>Distance (km)<input id="distance" type="number" value="8.5" min="0.1" step="0.1"></label>
+    </div>
+    <div class="row">
+      <select id="service"><option value="standard">Standard Ground</option><option value="express">Prime Express</option></select>
+      <button id="btn-register" class="pink">Register</button>
+    </div>
+    <p id="estimate" class="muted"></p>
+  </section>
+
+  <section class="panel"><h2>Conveyor belt</h2>
+    <div id="belt-bar" class="bar"></div>
+    <div class="row"><button id="btn-dispatch" class="olive">Dispatch next</button><button id="btn-load" class="pink">Load van</button></div>
+  </section>
+
+  <section class="panel"><h2>Van (stack)</h2>
+    <div id="van-body"></div>
+    <button id="btn-deliver" class="olive">Deliver next</button>
+  </section>
+
+  <section class="panel"><h2>Route</h2>
+    <div id="route-body"></div>
+    <div class="row"><select id="stop-select"></select><button id="btn-cancel" class="pink">Cancel stop</button></div>
+  </section>
+
+  <section class="panel"><h2>Track parcel</h2>
+    <div class="row"><input id="track-id" placeholder="12-digit tracking ID"><button id="btn-track" class="pink">Track</button></div>
+    <div id="track-result"></div>
+  </section>
+
+  <section class="panel"><h2>Parcels</h2>
+    <table><thead><tr><th>ID</th><th>To</th><th>Status</th></tr></thead><tbody id="parcel-rows"></tbody></table>
+  </section>
+</main>
+<script src="api.js"></script>
+<script src="../swastika/register.js"></script>
+<script src="../vikalp/belt.js"></script>
+<script src="../swastika/route.js"></script>
+<script src="../prachi/track.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
